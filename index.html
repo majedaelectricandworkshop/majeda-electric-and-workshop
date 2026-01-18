@@ -3,173 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Majeda Electric & Workshop - Complete Business App</title>
+    <title>Majeda Electric & Workshop - Motor Rewinding Specialists</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset & Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
         
         body {
-            background: #f8f9fa;
+            background-color: #f0f2f5;
             color: #333;
             line-height: 1.6;
         }
         
-        .app-container {
+        .container {
             max-width: 100%;
             overflow-x: hidden;
         }
         
-        /* App Header */
-        .app-header-bar {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+        /* Header */
+        .main-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .app-nav-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
         }
         
-        .app-nav-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
+        .logo-icon {
+            font-size: 3rem;
+            color: #ffcc00;
+            margin-right: 15px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
         
-        .app-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-align: center;
-            flex-grow: 1;
+        .logo-text h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(40, 53, 147, 0.9)), url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
-            background-size: cover;
-            background-position: center;
+        .logo-text .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .years-badge {
+            display: inline-block;
+            background: #ffcc00;
+            color: #1e3c72;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background-color: #2a5298;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+        
+        .nav-links li {
+            margin: 5px;
+        }
+        
+        .nav-links a {
             color: white;
-            padding: 40px 20px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: block;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: #ffcc00;
+            color: #1e3c72;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #2a5298;
+        }
+        
+        .section-title {
+            color: #1e3c72;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffcc00;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: #2a5298;
+        }
+        
+        /* Creative Section */
+        .creative-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .creative-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .workshop-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background-color: #e9e9e9;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid #ffcc00;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: #2a5298;
+            margin-bottom: 15px;
+        }
+        
+        /* Customers */
+        .customers-section {
             text-align: center;
+        }
+        
+        .customer-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+        }
+        
+        .customer-logo {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px 30px;
+            min-width: 200px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+        }
+        
+        /* Machines Grid */
+        .machines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .machine-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2a5298;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
             margin-bottom: 20px;
         }
         
-        .hero-logo {
-            font-size: 3.5rem;
-            color: #ffd600;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-title {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            font-weight: 800;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin: 0 auto 25px;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            background: #ffd600;
-            color: #1a237e;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Quick Actions */
-        .quick-actions {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 0 20px 25px;
-        }
-        
-        .action-btn {
-            background: white;
-            border-radius: 12px;
-            padding: 20px 15px;
-            text-align: center;
-            text-decoration: none;
-            color: #1a237e;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .action-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
-        }
-        
-        .action-icon {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-            color: #1a237e;
-        }
-        
-        .action-btn.emergency {
-            background: linear-gradient(135deg, #ff3d00 0%, #ff6d00 100%);
-            color: white;
-        }
-        
-        .action-btn.emergency .action-icon {
-            color: white;
-        }
-        
-        /* Content Sections */
-        .content-section {
-            background: white;
-            border-radius: 16px;
-            margin: 20px;
-            padding: 25px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #ffd600;
-        }
-        
-        .section-icon {
-            background: #1a237e;
+        .contact-icon {
+            background-color: #2a5298;
             color: white;
             width: 50px;
             height: 50px;
@@ -177,139 +270,61 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
             margin-right: 15px;
             flex-shrink: 0;
+            font-size: 1.2rem;
         }
         
-        .section-title {
-            font-size: 1.5rem;
-            color: #1a237e;
-            font-weight: 700;
-        }
-        
-        /* Services */
-        .services-container {
+        /* Motor Images */
+        .motor-images {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
+            margin-top: 25px;
         }
         
-        .service-item {
-            background: #f5f7ff;
-            border-left: 5px solid #1a237e;
-            padding: 20px;
+        .motor-image {
+            height: 200px;
             border-radius: 10px;
-            transition: all 0.3s;
-        }
-        
-        .service-item:hover {
-            background: #e8ebff;
-            transform: translateX(5px);
-        }
-        
-        .service-item h3 {
-            color: #1a237e;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .service-item h3 i {
-            margin-right: 10px;
-            color: #ffd600;
-        }
-        
-        /* Contact Cards */
-        .contact-card {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            color: white;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-        
-        .contact-card h3 {
-            color: #ffd600;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .contact-item-icon {
-            background: rgba(255, 255, 255, 0.2);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            overflow: hidden;
+            background-color: #e0e0e0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            margin-right: 15px;
-            flex-shrink: 0;
+            color: #666;
+            position: relative;
         }
         
-        .contact-details h4 {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            color: #ffd600;
+        .motor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        
-        .gallery-item {
-            height: 140px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .image-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(30, 60, 114, 0.85);
             color: white;
+            padding: 10px;
+            text-align: center;
             font-weight: 600;
-            text-align: center;
-            padding: 15px;
-            font-size: 0.9rem;
-        }
-        
-        /* Testimonials */
-        .testimonial-slider {
-            background: #f5f7ff;
-            border-radius: 16px;
-            padding: 25px;
-            margin-top: 30px;
-        }
-        
-        .testimonial {
-            text-align: center;
-            font-style: italic;
-            color: #555;
-        }
-        
-        .testimonial-author {
-            margin-top: 15px;
-            font-weight: 700;
-            color: #1a237e;
         }
         
         /* Footer */
-        .app-footer {
-            background: #1a237e;
+        .main-footer {
+            background-color: #1e3c72;
             color: white;
-            padding: 40px 20px 25px;
-            margin-top: 30px;
+            padding: 40px 20px;
             text-align: center;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .social-links {
@@ -320,7 +335,7 @@
         }
         
         .social-link {
-            background: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.1);
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -334,324 +349,400 @@
         }
         
         .social-link:hover {
-            background: #ffd600;
-            color: #1a237e;
+            background-color: #ffcc00;
+            color: #1e3c72;
             transform: scale(1.1);
         }
         
         .copyright {
             margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             opacity: 0.8;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 20px;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .quick-actions {
-                grid-template-columns: 1fr;
+            .logo {
+                flex-direction: column;
+                text-align: center;
             }
             
-            .services-container {
-                grid-template-columns: 1fr;
+            .logo-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
             }
             
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-title {
+            .logo-text h1 {
                 font-size: 1.8rem;
             }
             
-            .content-section {
-                margin: 15px;
+            .nav-links {
+                justify-content: space-around;
+            }
+            
+            .nav-links a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .section {
                 padding: 20px;
+            }
+            
+            .services-grid, .machines-grid, .motor-images {
+                grid-template-columns: 1fr;
+            }
+            
+            .customer-logo {
+                min-width: 150px;
             }
         }
         
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .fade-in {
-            animation: fadeIn 0.6s ease-out;
+            animation: fadeInUp 0.6s ease-out;
         }
         
-        /* Active Navigation */
-        .nav-active {
-            color: #ffd600 !important;
+        /* Highlight */
+        .highlight {
+            color: #1e3c72;
             font-weight: 700;
+        }
+        
+        .experience-badge {
+            display: inline-block;
+            background: #ffcc00;
+            color: #1e3c72;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <div class="app-container">
-        <!-- App Header -->
-        <div class="app-header-bar">
-            <button class="app-nav-btn" id="backBtn">
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <div class="app-title">Majeda Electric & Workshop</div>
-            <button class="app-nav-btn" id="menuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        
-        <!-- Hero Section -->
-        <section class="hero-section fade-in">
-            <div class="hero-logo">
-                <i class="fas fa-bolt"></i>
-            </div>
-            <h1 class="hero-title">Majeda Electric & Workshop</h1>
-            <p class="hero-subtitle">Professional Electrical Solutions & Mechanical Workshop Services with 15+ Years of Excellence</p>
-            <span class="hero-badge">24/7 Emergency Service Available</span>
-        </section>
-        
-        <!-- Quick Action Buttons -->
-        <div class="quick-actions fade-in">
-            <a href="tel:+1234567890" class="action-btn emergency">
-                <i class="fas fa-phone-alt action-icon"></i>
-                <span>Emergency Call</span>
-            </a>
-            <a href="#services" class="action-btn">
-                <i class="fas fa-tools action-icon"></i>
-                <span>Our Services</span>
-            </a>
-            <a href="#contact" class="action-btn">
-                <i class="fas fa-map-marker-alt action-icon"></i>
-                <span>Location</span>
-            </a>
-            <a href="#whatsapp" class="action-btn">
-                <i class="fab fa-whatsapp action-icon"></i>
-                <span>WhatsApp</span>
-            </a>
-        </div>
-        
-        <!-- Services Section -->
-        <section id="services" class="content-section fade-in">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fas fa-cogs"></i>
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-overlay"></div>
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>MAJEDA ELECTRIC AND WORKSHOP</h1>
+                        <p class="tagline">All Type of Electric Motor Generator & DC Motor Rewinding Shop</p>
+                    </div>
                 </div>
-                <h2 class="section-title">Our Professional Services</h2>
+                <div class="years-badge">Experience Since 2009 - 13+ Years of Excellence</div>
             </div>
+        </header>
+        
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#customers">Our Customers</a></li>
+                <li><a href="#machines">Machines We Work On</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- About/We Are Creative Section -->
+            <section id="about" class="section fade-in">
+                <h2 class="section-title"><i class="fas fa-lightbulb"></i> WE ARE CREATIVE</h2>
+                <div class="creative-section">
+                    <div class="creative-content">
+                        <p>Company's headquarters features a workshop of total surface area 505sq.feet (the area of Chittagong, close to the City of CDA Market, with direct access via car.</p>
+                        
+                        <div class="experience-badge">Capacity: 10 Employees</div>
+                        
+                        <p><span class="highlight">MAJEDA ELECTRIC & WORKSHOP</span> with (2009-2022) more than thirteen years of experience, guarantees to offer you the best possible service, with maximum efficiency / technique perfection – while minimizing the required time and cost, in part as part of the world requested of us.</p>
+                        
+                        <p>Our staff is qualified, well trained in repair, maintenance and windings electric motors (electric motors) and generators, in order to achieve the best quality of work.</p>
+                        
+                        <p><span class="highlight">MAJEDA ELECTRIC & WORKSHOP</span> is able to deliver repair/maintenance services on DC motors, AC motors and generators of almost any weight or power, such as:</p>
+                        
+                        <ul style="margin: 15px 0 15px 20px;">
+                            <li>Stator / Rotor/ Armature/ Alternator rewinding – old windings dismantling</li>
+                            <li>Porting and dipping impregnation methods are available</li>
+                            <li>Electrical measurements and tests – insulation resistance tests, polarization index, high voltage test etc.</li>
+                            <li>We load test and after repair quality control – on electric machines of any size and power</li>
+                            <li>Complete generator and motor troubleshooting and repair service</li>
+                            <li>Ongoing support and alternate 24/7</li>
+                        </ul>
+                        
+                        <p>Our experience for (2009-2022) more than thirteen years has made us synonymous with high quality and reliability.</p>
+                    </div>
+                    <div class="workshop-image">
+                        <div style="text-align: center;">
+                            <i class="fas fa-industry" style="font-size: 4rem; color: #2a5298; margin-bottom: 15px;"></i>
+                            <p>Our 505sq.ft Workshop</p>
+                            <p>CDA Market, Chittagong</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
-            <div class="services-container">
-                <div class="service-item">
-                    <h3><i class="fas fa-plug"></i> Electrical Installation</h3>
-                    <p>Complete house wiring, commercial electrical systems, switchboard installation, lighting solutions.</p>
+            <!-- Our Services -->
+            <section id="services" class="section fade-in">
+                <h2 class="section-title"><i class="fas fa-tools"></i> OUR SERVICES</h2>
+                <p>At Majeda Electric & Workshop we specialise in rewinding all types of industrial electric motors. We are accepted Repairing & Rewinding - Shrip Wire Cable - Copper Generators and Sets - Insulation resistance tests, polarization index, high voltage test etc. We load test and after repair quality control – on electric machines of any size and power Complete generator and motor troubleshooting and repair service Ongoing support and alternate 24/7 Our experience for (2009-2022) more than thirteen years has made us synonymous with high quality and reliability.</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Motor Rewinding</h3>
+                        <p>Professional rewinding of all types of industrial electric motors including AC/DC motors and generators.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Testing & Diagnostics</h3>
+                        <p>Insulation resistance tests, polarization index, high voltage testing and complete electrical measurements.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3>Repair & Maintenance</h3>
+                        <p>Complete generator and motor troubleshooting, repair service and ongoing maintenance support.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>24/7 Emergency Service</h3>
+                        <p>Round-the-clock emergency repair services for urgent breakdowns and maintenance needs.</p>
+                    </div>
                 </div>
                 
-                <div class="service-item">
-                    <h3><i class="fas fa-industry"></i> Industrial Maintenance</h3>
-                    <p>Factory machinery maintenance, motor repairs, generator servicing, industrial equipment troubleshooting.</p>
+                <!-- AC Motor Strip Coil Images -->
+                <h3 style="margin-top: 40px; color: #1e3c72; border-bottom: 1px solid #eee; padding-bottom: 10px;">AC Motor Strip Coil Examples</h3>
+                <div class="motor-images">
+                    <div class="motor-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="AC Motor Coil Winding">
+                        <div class="image-label">AC Motor Stator Winding</div>
+                    </div>
+                    <div class="motor-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Motor Coil Stripping">
+                        <div class="image-label">Coil Stripping Process</div>
+                    </div>
+                    <div class="motor-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Rewound Motor">
+                        <div class="image-label">Rewound AC Motor</div>
+                    </div>
                 </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-solar-panel"></i> Solar Power Systems</h3>
-                    <p>Solar panel installation, inverter setup, solar water heaters, complete renewable energy solutions.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-toolbox"></i> Workshop Services</h3>
-                    <p>Metal fabrication, welding, machining, equipment repair, custom mechanical solutions.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-bolt"></i> Emergency Repairs</h3>
-                    <p>24/7 emergency electrical fault repairs, power failure solutions, urgent mechanical repairs.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-clipboard-check"></i> Consultation & Audit</h3>
-                    <p>Electrical safety audit, energy consumption analysis, maintenance planning, technical consultation.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="content-section fade-in">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fas fa-address-book"></i>
-                </div>
-                <h2 class="section-title">Contact Information</h2>
-            </div>
+            </section>
             
-            <div class="contact-card">
-                <h3>Get in Touch</h3>
+            <!-- Our Customers -->
+            <section id="customers" class="section fade-in customers-section">
+                <h2 class="section-title"><i class="fas fa-users"></i> OUR CUSTOMERS</h2>
+                <p>We proudly serve a wide range of industrial clients across Bangladesh.</p>
                 
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                <div class="customer-logos">
+                    <div class="customer-logo">
+                        <i class="fas fa-industry" style="font-size: 2.5rem; color: #2a5298; margin-bottom: 10px;"></i>
+                        <h3>BANDAR STEEL MILLS LTD.</h3>
+                        <p>DHAKA, BANGLADESH</p>
                     </div>
-                    <div class="contact-details">
-                        <h4>Workshop Address</h4>
-                        <p>123 Industrial Zone, Electric Street<br>City Center, State 12345</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>Phone Numbers</h4>
-                        <p>+1 (234) 567-8900 (Office)<br>+1 (234) 567-8901 (Emergency)</p>
+                    
+                    <div class="customer-logo">
+                        <i class="fas fa-industry" style="font-size: 2.5rem; color: #2a5298; margin-bottom: 10px;"></i>
+                        <h3>Other Industrial Clients</h3>
+                        <p>Across Bangladesh</p>
                     </div>
                 </div>
-                
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>Business Hours</h4>
-                        <p>Mon-Sat: 8:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM<br>Emergency: 24/7 Available</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>Email Address</h4>
-                        <p>info@majedaelectric.com<br>service@majedaelectric.com</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Gallery Section -->
-        <section id="gallery" class="content-section fade-in">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fas fa-images"></i>
-                </div>
-                <h2 class="section-title">Our Work Gallery</h2>
-            </div>
+            </section>
             
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <i class="fas fa-bolt fa-2x" style="margin-bottom: 10px;"></i>
-                    Electrical Panel Installation
+            <!-- Machines We Worked On -->
+            <section id="machines" class="section fade-in">
+                <h2 class="section-title"><i class="fas fa-cogs"></i> THE MACHINES WE WORKED ON</h2>
+                
+                <h3 style="margin: 20px 0 15px 0; color: #1e3c72;">EOT Cranes:</h3>
+                <div class="machines-grid">
+                    <div class="machine-item">EOT Crane-Federer</div>
+                    <div class="machine-item">EOT Crane-WMR</div>
+                    <div class="machine-item">EOT Crane-KONE</div>
+                    <div class="machine-item">EOT Crane-DEMAG</div>
                 </div>
-                <div class="gallery-item">
-                    <i class="fas fa-industry fa-2x" style="margin-bottom: 10px;"></i>
-                    Industrial Motor Repair
+                
+                <h3 style="margin: 30px 0 15px 0; color: #1e3c72;">Other Equipment:</h3>
+                <div class="machines-grid">
+                    <div class="machine-item">L&W Voltage Starter & Motor Winding</div>
+                    <div class="machine-item">L&W Voltage Starter & Magnet Winding</div>
+                    <div class="machine-item">L&W Battery Charger</div>
+                    <div class="machine-item">L&M Battery Charger</div>
+                    <div class="machine-item">ABB Transformer</div>
+                    <div class="machine-item">ABB Transformers (Various Types)</div>
                 </div>
-                <div class="gallery-item">
-                    <i class="fas fa-solar-panel fa-2x" style="margin-bottom: 10px;"></i>
-                    Solar System Setup
+            </section>
+            
+            <!-- Contact Us -->
+            <section id="contact" class="section fade-in">
+                <h2 class="section-title"><i class="fas fa-address-book"></i> CONTACT US</h2>
+                
+                <div class="contact-info">
+                    <div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Address</h3>
+                                <p>1st Floor, 3rd floor, No. 5/6, Heli Heart Market, D.T. Road, CDA Market, Pabna, Bangladesh</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+8801740792666</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>majedalectricworkshop@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3>Business Hours</h3>
+                                <p>Monday - Saturday: 8:00 AM - 8:00 PM</p>
+                                <p>Emergency Service: 24/7 Available</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <i class="fas fa-tools fa-2x" style="margin-bottom: 10px;"></i>
-                    Workshop Projects
+                
+                <!-- Call to Action -->
+                <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); color: white; padding: 25px; border-radius: 10px; margin-top: 30px; text-align: center;">
+                    <h3 style="margin-bottom: 15px; color: #ffcc00;">Need Electrical Motor Services?</h3>
+                    <p style="margin-bottom: 20px;">Contact us today for professional motor rewinding, repair and maintenance services.</p>
+                    <a href="tel:+8801740792666" style="display: inline-block; background: #ffcc00; color: #1e3c72; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem;">
+                        <i class="fas fa-phone-alt"></i> Call Now: +8801740792666
+                    </a>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Testimonials -->
-        <section class="testimonial-slider fade-in">
-            <h3 style="color: #1a237e; text-align: center; margin-bottom: 20px;">What Our Clients Say</h3>
-            <div class="testimonial">
-                <p>"Majeda Electric solved our factory's power issue in just 2 hours. Professional, reliable, and reasonably priced. Highly recommended!"</p>
-                <div class="testimonial-author">- Ahmed Manufacturing Co.</div>
-            </div>
-        </section>
+            </section>
+        </main>
         
         <!-- Footer -->
-        <footer class="app-footer">
-            <h3>Majeda Electric & Workshop</h3>
-            <p>Your Trusted Electrical & Mechanical Partner Since 2008</p>
-            
-            <div class="social-links">
-                <a href="#" class="social-link">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 Majeda Electric & Workshop. All Rights Reserved.</p>
-                <p style="margin-top: 8px; font-size: 0.85rem;">Designed for Android App Conversion via AppsGeyser</p>
+        <footer class="main-footer">
+            <div class="footer-content">
+                <h2>MAJEDA ELECTRIC AND WORKSHOP</h2>
+                <p>Professional Electric Motor & Generator Rewinding Specialists</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:majedalectricworkshop@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+8801740792666" class="social-link">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2009-2023 Majeda Electric & Workshop. All rights reserved.</p>
+                    <p style="margin-top: 10px;">Specialists in Electric Motor Rewinding, Generator Repair & Industrial Electrical Services</p>
+                </div>
             </div>
         </footer>
     </div>
     
     <script>
-        // AppsGeyser App Functionality
+        // Navigation active state
         document.addEventListener('DOMContentLoaded', function() {
-            // App navigation buttons
-            document.getElementById('backBtn').addEventListener('click', function() {
-                if (confirm('Go back to previous screen?')) {
-                    window.history.back();
-                }
-            });
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const sections = document.querySelectorAll('.section');
             
-            document.getElementById('menuBtn').addEventListener('click', function() {
-                alert('App Menu:\n\n1. Home\n2. Services\n3. Contact\n4. Gallery\n5. Emergency\n6. About Us\n\n(In a real app, this would open a navigation drawer)');
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+            // Set active nav link on click
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
                     
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
+                    
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            top: targetElement.offsetTop - 70,
                             behavior: 'smooth'
                         });
                     }
                 });
             });
             
-            // WhatsApp button functionality
-            document.querySelector('a[href="#whatsapp"]').addEventListener('click', function(e) {
-                e.preventDefault();
-                const phoneNumber = '+1234567890';
-                const message = 'Hello Majeda Electric, I need information about your services.';
-                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            // Set active nav link based on scroll position
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
                 
-                if (confirm('Open WhatsApp to contact Majeda Electric?')) {
-                    window.open(whatsappUrl, '_blank');
-                }
-            });
-            
-            // Emergency call confirmation
-            document.querySelector('a[href^="tel:"]').addEventListener('click', function(e) {
-                if (!confirm('Call Majeda Electric Emergency Line?\n\n+1 (234) 567-8901')) {
-                    e.preventDefault();
-                }
-            });
-            
-            // Add active class to clicked quick actions
-            document.querySelectorAll('.action-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.action-btn').forEach(b => b.classList.remove('nav-active'));
-                    this.classList.add('nav-active');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
                 });
             });
             
-            // Animate elements on scroll
+            // Add fade-in animation to sections on scroll
             const observerOptions = {
                 threshold: 0.1
             };
@@ -664,10 +755,19 @@
                 });
             }, observerOptions);
             
-            // Observe all sections
-            document.querySelectorAll('.content-section, .testimonial-slider').forEach(section => {
+            sections.forEach(section => {
                 observer.observe(section);
             });
+            
+            // Call button confirmation
+            const callButton = document.querySelector('a[href^="tel:"]');
+            if (callButton) {
+                callButton.addEventListener('click', function(e) {
+                    if (!confirm('Call Majeda Electric & Workshop?\n\n+8801740792666')) {
+                        e.preventDefault();
+                    }
+                });
+            }
         });
     </script>
 </body>
