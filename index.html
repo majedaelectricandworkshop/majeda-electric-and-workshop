@@ -155,6 +155,27 @@
             color: #2a5298;
         }
         
+        /* Bio Section */
+        .bio-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 5px solid #ffcc00;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .bio-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1e3c72;
+            text-align: center;
+        }
+        
+        .bio-highlight {
+            color: #ff6600;
+            font-weight: 700;
+        }
+        
         /* Creative Section */
         .creative-section {
             display: flex;
@@ -275,6 +296,51 @@
             font-size: 1.2rem;
         }
         
+        /* Contact Quick Links */
+        .contact-quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            background: #f5f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1e3c72;
+            border: 1px solid #d0d7ff;
+            transition: all 0.3s;
+        }
+        
+        .contact-link:hover {
+            background: #2a5298;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-link i {
+            font-size: 1.5rem;
+            margin-right: 12px;
+        }
+        
+        /* Map Container */
+        .map-container {
+            margin-top: 25px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 300px;
+            background-color: #e9e9e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
         /* Motor Images */
         .motor-images {
             display: grid;
@@ -336,14 +402,14 @@
         
         .social-link {
             background-color: rgba(255, 255, 255, 0.1);
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-decoration: none;
             transition: all 0.3s;
         }
@@ -360,6 +426,31 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             opacity: 0.8;
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
         }
         
         /* Responsive */
@@ -398,6 +489,14 @@
             .customer-logo {
                 min-width: 150px;
             }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
         }
         
         /* Animations */
@@ -432,10 +531,26 @@
             margin: 10px 0;
             font-size: 0.9rem;
         }
+        
+        /* Emergency Contact */
+        .emergency-contact {
+            background: linear-gradient(135deg, #ff3333 0%, #cc0000 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 51, 51, 0.3);
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/8801740929666" class="whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        
         <!-- Header -->
         <header class="main-header">
             <div class="header-overlay"></div>
@@ -467,6 +582,15 @@
         
         <!-- Main Content -->
         <main class="main-content">
+            <!-- Bio Section -->
+            <div class="bio-section fade-in">
+                <p class="bio-text">
+                    All kinds of AC, DC, SLIPRING, HV, LV, BS Motor Rewinding & Repairing, Overhauling. 
+                    <span class="bio-highlight">(Specially DC Motor And Ship Motors, Generators Rewinding)</span> 
+                    CDA Market, CTG, BD
+                </p>
+            </div>
+            
             <!-- About/We Are Creative Section -->
             <section id="about" class="section fade-in">
                 <h2 class="section-title"><i class="fas fa-lightbulb"></i> WE ARE CREATIVE</h2>
@@ -550,7 +674,7 @@
                         <div class="image-label">AC Motor Stator Winding</div>
                     </div>
                     <div class="motor-image">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Motor Coil Stripping">
+                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Motor Coil Stripping">
                         <div class="image-label">Coil Stripping Process</div>
                     </div>
                     <div class="motor-image">
@@ -607,6 +731,13 @@
             <section id="contact" class="section fade-in">
                 <h2 class="section-title"><i class="fas fa-address-book"></i> CONTACT US</h2>
                 
+                <!-- Emergency Contact -->
+                <div class="emergency-contact">
+                    <h3><i class="fas fa-phone-alt"></i> EMERGENCY CONTACT 24/7</h3>
+                    <p style="font-size: 1.4rem; margin: 10px 0; font-weight: bold;">+8801740929666</p>
+                    <p>(WhatsApp + IMO + Bip)</p>
+                </div>
+                
                 <div class="contact-info">
                     <div>
                         <div class="contact-item">
@@ -624,8 +755,9 @@
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div>
-                                <h3>Phone</h3>
-                                <p>+8801740792666</p>
+                                <h3>Phone Numbers</h3>
+                                <p><strong>Primary:</strong> +8801740929666 (WhatsApp + IMO + Bip)</p>
+                                <p><strong>Secondary:</strong> +8801673877962 (WeChat)</p>
                             </div>
                         </div>
                     </div>
@@ -637,7 +769,7 @@
                             </div>
                             <div>
                                 <h3>Email</h3>
-                                <p>majedalectricworkshop@gmail.com</p>
+                                <p>majedaelectricworkshop@gmail.com</p>
                             </div>
                         </div>
                         
@@ -654,13 +786,51 @@
                     </div>
                 </div>
                 
-                <!-- Call to Action -->
-                <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); color: white; padding: 25px; border-radius: 10px; margin-top: 30px; text-align: center;">
-                    <h3 style="margin-bottom: 15px; color: #ffcc00;">Need Electrical Motor Services?</h3>
-                    <p style="margin-bottom: 20px;">Contact us today for professional motor rewinding, repair and maintenance services.</p>
-                    <a href="tel:+8801740792666" style="display: inline-block; background: #ffcc00; color: #1e3c72; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem;">
-                        <i class="fas fa-phone-alt"></i> Call Now: +8801740792666
+                <!-- Contact Quick Links -->
+                <h3 style="margin: 30px 0 15px 0; color: #1e3c72;">Quick Contact Links:</h3>
+                <div class="contact-quick-links">
+                    <a href="https://wa.me/8801740929666" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Now</span>
                     </a>
+                    
+                    <a href="https://web.facebook.com/profile.php?id=100067041133287" class="contact-link" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook Page</span>
+                    </a>
+                    
+                    <a href="mailto:majedaelectricworkshop@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Send Email</span>
+                    </a>
+                    
+                    <a href="tel:+8801740929666" class="contact-link">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Call Now</span>
+                    </a>
+                    
+                    <a href="https://youtube.com/channel/ucn3z4c0gvvpvkyuqdenk7la" class="contact-link" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube Channel</span>
+                    </a>
+                    
+                    <a href="https://maps.app.goo.gl/CruvrJ3vMyF4kAxV9" class="contact-link" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Google Maps</span>
+                    </a>
+                </div>
+                
+                <!-- Map -->
+                <h3 style="margin: 30px 0 15px 0; color: #1e3c72;">Our Location:</h3>
+                <div class="map-container">
+                    <div style="text-align: center;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: #2a5298; margin-bottom: 15px;"></i>
+                        <p>CDA Market, Chittagong</p>
+                        <p>1st Floor, 3rd floor, No. 5/6, Heli Heart Market</p>
+                        <a href="https://maps.app.goo.gl/CruvrJ3vMyF4kAxV9" target="_blank" style="display: inline-block; margin-top: 15px; background: #2a5298; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+                            <i class="fas fa-directions"></i> Open in Google Maps
+                        </a>
+                    </div>
                 </div>
             </section>
         </main>
@@ -669,26 +839,47 @@
         <footer class="main-footer">
             <div class="footer-content">
                 <h2>MAJEDA ELECTRIC AND WORKSHOP</h2>
-                <p>Professional Electric Motor & Generator Rewinding Specialists</p>
+                <p>Professional Electric Motor & Generator Rewinding Specialists Since 2009</p>
                 
                 <div class="social-links">
-                    <a href="#" class="social-link">
+                    <a href="https://web.facebook.com/profile.php?id=100067041133287" class="social-link" target="_blank">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="social-link">
+                    <a href="https://wa.me/8801740929666" class="social-link" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="mailto:majedalectricworkshop@gmail.com" class="social-link">
+                    <a href="mailto:majedaelectricworkshop@gmail.com" class="social-link">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="tel:+8801740792666" class="social-link">
+                    <a href="https://youtube.com/channel/ucn3z4c0gvvpvkyuqdenk7la" class="social-link" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="tel:+8801740929666" class="social-link">
                         <i class="fas fa-phone-alt"></i>
                     </a>
+                </div>
+                
+                <div class="contact-info" style="margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+                    <div>
+                        <h4>Primary Contact</h4>
+                        <p>+8801740929666</p>
+                        <p>(WhatsApp + IMO + Bip)</p>
+                    </div>
+                    <div>
+                        <h4>Secondary Contact</h4>
+                        <p>+8801673877962</p>
+                        <p>(WeChat)</p>
+                    </div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>majedaelectricworkshop@gmail.com</p>
+                    </div>
                 </div>
                 
                 <div class="copyright">
                     <p>&copy; 2009-2023 Majeda Electric & Workshop. All rights reserved.</p>
                     <p style="margin-top: 10px;">Specialists in Electric Motor Rewinding, Generator Repair & Industrial Electrical Services</p>
+                    <p style="margin-top: 10px; font-size: 0.8rem;">CDA Market, Chittagong, Bangladesh</p>
                 </div>
             </div>
         </footer>
@@ -760,14 +951,26 @@
             });
             
             // Call button confirmation
-            const callButton = document.querySelector('a[href^="tel:"]');
-            if (callButton) {
-                callButton.addEventListener('click', function(e) {
-                    if (!confirm('Call Majeda Electric & Workshop?\n\n+8801740792666')) {
+            const callButtons = document.querySelectorAll('a[href^="tel:"]');
+            callButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (!confirm('Call Majeda Electric & Workshop?\n\n+8801740929666')) {
                         e.preventDefault();
                     }
                 });
-            }
+            });
+            
+            // WhatsApp button confirmation
+            const whatsappButtons = document.querySelectorAll('a[href*="whatsapp"]');
+            whatsappButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').includes('whatsapp')) {
+                        if (!confirm('Open WhatsApp to contact Majeda Electric & Workshop?')) {
+                            e.preventDefault();
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
